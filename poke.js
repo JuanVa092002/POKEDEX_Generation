@@ -5,7 +5,11 @@ let name = prompt("Enter a Pokémon name:");
 
 async function getPokemon(pokemon) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-    console.log(response.status);
+    if (!response.ok){
+        console.log(`Error: ${response.status}`);
+        return;
+    }
+        console.log(); 
     const data = await response.json();
         
         console.log('Tipos');
@@ -26,11 +30,3 @@ async function getPokemon(pokemon) {
         console.log('===============');
 }
 getPokemon(name);
-
-getPokemon('pikachu')
-getPokemon('bulbasaur')
-getPokemon('charmander')
-getPokemon('squirtle')
-getPokemon('jigglypuff')
-
-forEach
